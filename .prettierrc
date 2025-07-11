@@ -1,0 +1,16 @@
+{
+  "parser": "babel",
+  "plugins": ["prettier-plugin-go-template"],
+  "printWidth": 100,
+  "trailingComma": "all",
+  "arrowParens": "avoid",
+  "overrides": [
+    {
+      "files": ["*.html", "*.css"],
+      "options": {
+        "parser": "go-template",
+        "singleQuote": false
+      }
+    }
+  ],
+}

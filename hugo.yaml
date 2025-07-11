@@ -1,0 +1,35 @@
+params:
+  pagination:
+    pagerSize: 1
+languages:
+  en:
+    languageName: English
+    title: Noiceee
+    params:
+      centerTheme : true
+      subtitle: Sivaa
+      owner: "sivaplaysmc"
+      keywords: ""
+      copyright: "Copyright 2025, sivaplaysmc"
+      menuMore: Show more
+      readMore: "Read more"
+      readOtherPosts: Read other posts
+      newerPosts: Newer posts
+      olderPosts: Older posts
+      missingContentMessage: Page not found...
+      missingBackButtonLabel: Back to home page
+      minuteReadingTime: min read
+      words: words
+      logo:
+        logoText: sivaplaysmc.github.io
+        logoHomeLink: /
+    menu:
+      main:
+        - identifier: posts
+          name: Posts
+          url: /posts/
+        - identifier: writeups
+          name: Writeups
+          url: /writeups
+
+
