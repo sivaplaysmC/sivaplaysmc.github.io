@@ -8,7 +8,7 @@ tags:
 - modprobe
 ---
 
-`modprobe_path` overwrite exploit after 6.14.
+`modprobe_path` overwrite exploit after [kernel commit `fa1bdca98d74472dcdb79cb948b54f63b5886c04`](https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=fa1bdca98d74472dcdb79cb948b54f63b5886c04).
 trigger modprobe using `struct sockaddr_alg`.
 
 First ever kernel pwn!
