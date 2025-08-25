@@ -13,4 +13,3 @@ Placed position 7, solved a few web and misc challenges.
 <!--more-->
 
 The lack of PWN/REV challenges is so annoying :cry:
-

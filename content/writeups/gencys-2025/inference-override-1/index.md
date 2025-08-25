@@ -1,6 +1,5 @@
 ---
 date: '2025-08-25T13:02:33+05:30'
-draft: true
 title: 'Inference Override 1'
 tags:
 - web
