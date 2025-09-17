@@ -40,11 +40,12 @@ Out of curiosity, we tried converting the video to wav, hoping to get any leads 
 
 ### Decryption
 
-Make ChatGPT generate a long aah cript that does dtmf decode and common decryption techniques (Even though I clearly mentioned only AES-256)
+Make ChatGPT generate a long aah script that does dtmf decode and common decryption techniques (Even though I clearly mentioned only AES-256)
 
 **and voila flag is revealed...**
 
 ```py
+# file: yap.py
 import hashlib, string, io, zlib, gzip, sys
 from base64 import b64decode
 from Crypto.Cipher import AES, DES3, ARC4, ChaCha20_Poly1305
