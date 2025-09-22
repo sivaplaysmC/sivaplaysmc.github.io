@@ -92,3 +92,7 @@ PLEASE DON'T STORE SENSITIVE CREDENTIALS / SECRET KEYS / PASSWORDS with `ssh-cli
 
 If you want a private storage, you can always self-host your own copy of `ssh-clip` on your own server and not share it's port to others - it's as simple as running it yourself. Keep in mind that no verification of usernames is done, so if people have your instance's IP and PORT, they can access and store files in it.
 
+## Source
+
+Get the source code here:
+1. [Github](https://github.com/sivaplaysmC/ssh-clip)
