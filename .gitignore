@@ -91,3 +91,5 @@ typings/
 public
 resources
 .hugo_build.lock
+
+.nvim
