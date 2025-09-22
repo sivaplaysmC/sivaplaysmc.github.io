@@ -1,6 +1,5 @@
 ---
 date: '2025-09-22T12:11:26+05:30'
-draft: true
 title: 'Ssh Clip'
 ---
 
