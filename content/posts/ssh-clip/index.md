@@ -35,7 +35,7 @@ first_message is the name of the file you'd like to store.
 
 ### SSH as a protocol
 
-SSH, even though many don't know, [is actually a protocol](https://datatracker.ietf.org/doc/html/rfc4251). The `ssh` and `sshd` commands are just clients and servers that (unironically) communicate via the `ssh` protocol.
+SSH, [is actually a protocol](https://datatracker.ietf.org/doc/html/rfc4251). The `ssh` and `sshd` commands are just clients and servers that (unironically) communicate via the `ssh` protocol.
 
 This means that we can provide a spec-compliant custom implementation for the server, and any `ssh` client should be able to communicate with the server just fine.
 
