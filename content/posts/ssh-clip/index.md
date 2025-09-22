@@ -25,6 +25,23 @@ To **download** saved content:
 ssh trash@ansr.mooo.com -p 8080 d first_message
 ```
 
+Upload files!
+
+```sh
+# PLEASE DON'T TRY THIS
+cat nuclear-launch-codes.txt | ssh trash@ansr.mooo.com -p 8080 u nvim-config
+```
+
+Upload and download directories!
+
+```sh
+# Upload
+tar cv ~/.config/nvim | ssh trash@ansr.mooo.com -p 8080 u nvim_config
+
+# Download
+ssh trash@ansr.mooo.com -p 8080 d nvim_config | tar xv
+```
+
 > Here, `trash` acts as a "clipboard slot" name — you can use any name you like.
 first_message is the name of the file you'd like to store.
 
