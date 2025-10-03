@@ -18,8 +18,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: "Fira
-Code", Monaco, Consolas, "Ubuntu Mono", monospace;
+  font-family: "Fira Code", Monaco, Consolas, "Ubuntu Mono", monospace;
   font-size: var(--font-size);
   line-height: var(--line-height);
   background-color: var(--background);
@@ -63,7 +62,9 @@ table {
   margin: 25px 0;
 }
 a {
-  color: var(--accent);
+  color: var(--foreground);
+  text-shadow:
+    0 0 15px var(--accent);
 }
 button {
   position: relative;
@@ -433,4 +434,41 @@ iframe[src*="youtube.com"] {
   .content {
     display: initial;
   }
+}
+
+@keyframes breathing-glow {
+  0%, 100% {
+    text-shadow:
+      0 0 5px var(--accent),
+      0 0 15px var(--accent);
+  }
+  50% {
+    text-shadow:
+      0 0 15px var(--accent),
+      0 0 40px var(--accent);
+  }
+}
+
+strong {
+  color: var(--foreground);
+  animation: breathing-glow 3s ease-in-out infinite;
+}
+
+/* H1 — crisp, subtle glow */
+h1 {
+  color: var(--foreground);
+  text-shadow: 
+    0 0 1px #00ff80;  /* just a very thin green aura */
+}
+
+/* H2 — even subtler glow */
+h2, h3 {
+  color: var(--foreground);
+  text-shadow: 
+    0 0 0.8px #00ff80;  /* minimal, just “felt” glow */
+}
+/* H3, H4, H5, H6 — no glow, just foreground color */
+h4, h5, h6 {
+  color: var(--foreground);
+  text-shadow: none;
 }
