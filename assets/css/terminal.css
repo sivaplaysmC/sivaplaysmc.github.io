@@ -10,7 +10,7 @@ https://panr.github.io/terminal-css/ */
   --accent: #4eee85;
   --radius: 0;
   --font-size: 1rem;
-  --line-height: 1.54em;
+  --line-height: 1.54;
 }
 
 html {
