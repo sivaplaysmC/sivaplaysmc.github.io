@@ -4,7 +4,7 @@ draft: false
 title: 'Hacking Rustls: Adding Your Own CA for HTTP/S Proxies'
 ---
 
-Giving `rustls` a gentle lobotomy and make it cooperate with the HTTP/S your proxy of choice :).
+Give `rustls` a gentle lobotomy and make it cooperate with the HTTP/S your proxy of choice :).
 
 <!--more-->
 
