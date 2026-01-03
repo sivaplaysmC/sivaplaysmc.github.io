@@ -12,9 +12,9 @@
                     {{- end -}}
                 </time>
             {{- end -}}
-            {{- with .Params.Author -}}
-                <span class="post-author">{{ . }}</span>
-            {{- end -}}
+            <span class="post-author">
+                {{ .Params.Author | default "Ishmael42" }}
+            </span>
             <span class="post-reading-time">
                 {{ .ReadingTime }}
                 {{ $.Site.Params.minuteReadingTime | default "min read" }}

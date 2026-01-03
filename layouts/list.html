@@ -16,9 +16,9 @@
                             {{- partial "post-date" . -}}
                         </time>
                     {{- end -}}
-                    {{- with .Params.Author -}}
-                        <span class="post-author">{{- . -}}</span>
-                    {{- end -}}
+                    <span class="post-author">
+                        {{ .Params.Author | default "Ishmael42" }}
+                    </span>
                 </div>
 
                 {{ if .Params.tags }}
