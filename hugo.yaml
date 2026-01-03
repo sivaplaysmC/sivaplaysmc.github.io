@@ -32,4 +32,10 @@ languages:
           name: Writeups
           url: /writeups
 
+markup:
+  highlight:
+    lineNos: true
+    lineNumbersInTable: false
+    lineAnchors: false
+    style: nord
 
