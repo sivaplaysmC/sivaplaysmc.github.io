@@ -58,7 +58,7 @@ Files https://drive.google.com/file/d/1X6bSq0f0SlD2OKDTG5Dqw0utxlRqgyBn/view?usp
 
 Main exploit
 
-```c
+```c {title="exploit.c"}
 #define _GNU_SOURCE
 #include <sys/ioctl.h>
 
@@ -197,7 +197,7 @@ int main(void) {
 
 IOCTL Interface code
 
-```c
+```c {title="lib.c"}
 #include "lib.h"
 #include <fcntl.h>
 #include <stdlib.h>

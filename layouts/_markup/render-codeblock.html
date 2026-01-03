@@ -1,4 +1,10 @@
 {{- $result := transform.HighlightCodeBlock . -}}
 <div class="chroma">
-    {{- $result.Wrapped -}}
+    <div class="highlight">
+        <pre tabindex="0" class="chroma"><code class="language-{{ .Type }}" data-lang="{{ .Type }}" data-title="{{.Attributes.title | default .Type }}">
+      {{- with transform.HighlightCodeBlock . -}}
+      {{ .Inner }}
+      {{- end -}}
+        </code></pre>
+    </div>
 </div>

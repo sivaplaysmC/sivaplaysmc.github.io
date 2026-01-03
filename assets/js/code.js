@@ -7,8 +7,11 @@ for (const bc of blockcodes) {
   // Code title
   const title = document.createElement("div");
   const lang = bc.dataset.lang;
+  const blockTitle = bc.dataset.title;
+  const titleText = [lang, blockTitle].join(" - ");
+
   title.classList.add("code-title");
-  title.innerText = lang;
+  title.innerText = titleText;
 
   // Copy to clipboard
   if (navigator.clipboard !== undefined) {
