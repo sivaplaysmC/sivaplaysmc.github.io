@@ -16,13 +16,11 @@ Inspect the html and find js file.
 Find this encoded string in js file.
 
 ```js
-const encodedFlag: 'cm9vdEBsb2NhbGhvc3R7VGhlX3dlYl9jaGFsbF9pc19lYXN5fQ=='; 
+const encodedFlag: 'cm9vdEBsb2NhbGhvc3R7VGhlX3dlYl9jaGFsbF9pc19lYXN5fQ==';
 ```
 
 Decode it
-```terminal
-$ base64 -d <<< cm9vdEBsb2NhbGhvc3R7VGhlX3dlYl9jaGFsbF9pc19lYXN5fQ==
-root@localhost{The_web_chall_is_easy}
-```
+> [!Terminal]+ base64 -d <<< cm9vdEBsb2NhbGhvc3R7VGhlX3dlYl9jaGFsbF9pc19lYXN5fQ==
+> root@localhost{The_web_chall_is_easy}
 
 ### Flag: `root@localhost{The_web_chall_is_easy}`
