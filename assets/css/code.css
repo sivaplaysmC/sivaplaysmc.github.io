@@ -125,3 +125,7 @@ code {
 .collapsable-code pre::first-line {
   line-height: 0;
 }
+
+.terminal-content p {
+    margin: 0;
+}

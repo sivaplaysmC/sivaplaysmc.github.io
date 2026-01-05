@@ -1,0 +1,20 @@
+{{- $id := delimit (shuffle (seq 1 9)) "" -}}
+{{- $open := default .Attributes.Open "open" -}}
+{{- $title := default .AlertTitle "TERMINAL" -}}
+
+<details id="{{ $id }}" class="terminal collapsable-code" {{ if eq $open "open" }}open{{ end }}>
+    <summary title="Click to expand" style="display: flex; justify-content: space-between; align-items: center;">
+        <span class="collapsable-code__title terminal-title">
+            <span>
+                <span class="terminal-prompt" style="margin-right: 10px;">$_</span>
+            </span>
+            {{- with .AlertTitle -}}
+                {{ . }}
+            {{- else -}}
+                TERMINAL
+            {{- end -}}
+        </span>
+    </summary>
+    <div class="terminal-content"><pre><code>{{- .Text -}}</code></pre></div>
+</details>
+
