@@ -2,6 +2,11 @@
 date: '2025-12-18T15:16:36+05:30'
 draft: false
 title: 'Hacking Rustls: Adding Your Own CA for HTTP/S Proxies'
+tags:
+-   Rust
+-   ghidra
+-   reverse-engineering
+-   python
 ---
 
 Give `rustls` a gentle lobotomy and make it cooperate with the HTTP/S your proxy of choice :).
