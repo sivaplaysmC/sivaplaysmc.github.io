@@ -16,9 +16,9 @@
                 {{- .Params.Author | default "Ishmael42" -}}
             </span>
             <span class="post-reading-time">
-                {{ .ReadingTime }}
+                {{- .ReadingTime }}
                 {{ $.Site.Params.minuteReadingTime | default "min read" }}
-                ({{ .WordCount }} {{ $.Site.Params.words | default "words" }})
+                ({{ .WordCount }} {{ $.Site.Params.words | default "words" -}})
             </span>
         </div>
 
