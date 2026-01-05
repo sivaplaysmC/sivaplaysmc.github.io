@@ -1,10 +1,30 @@
-{{- $result := transform.HighlightCodeBlock . -}}
-<div class="chroma">
-    <div class="highlight">
-        <pre tabindex="0" class="chroma"><code class="language-{{ .Type }}" data-lang="{{ .Type }}" data-title="{{.Attributes.title | default .Type }}">
-      {{- with transform.HighlightCodeBlock . -}}
-      {{ .Inner }}
-      {{- end -}}
-        </code></pre>
+{{- $result := (transform.HighlightCodeBlock .).Wrapped -}}
+
+{{ $id := delimit (shuffle (seq 1 9)) "" }}
+{{ $open := default .Attributes.Open "open" }}
+
+{{- if .Type -}}
+<details id="{{ $id }}" class="code collapsable-code" open>
+    <summary title="Click to expand" style="display: flex;justify-content: space-between;">
+        <span class="collapsable-code__title">
+            {{- if .Attributes.title -}}
+                {{ (printf "%s — %s" .Type  .Attributes.title) | upper }}
+            {{- else -}}
+                {{ .Type | upper }}
+            {{- end -}}
+        </span>
+        <button class="copy-button" data-copy-target="{{ $id }}">Copy</button>
+    </summary>
+    {{- $result -}}
+</details>
+
+{{- else -}}
+<div id="{{ $id }}" class="collapsable-code">
+    <div style="display: flex;justify-content: space-between;">
+        <span class="collapsable-code__title">TEXT</span>
+        <button class="copy-button" data-copy-target="{{ $id }}">Copy</button>
     </div>
+    {{- $result -}}
 </div>
+
+{{- end -}}

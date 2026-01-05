@@ -110,7 +110,7 @@ code {
 
 .collapsable-code summary {
   color: var(--accent);
-  padding: 0 10px;
+  padding: 0px;
   cursor: pointer;
 }
 
