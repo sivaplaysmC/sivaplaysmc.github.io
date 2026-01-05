@@ -1,3 +1,4 @@
+copyright: "Copyright 2026, Ishmael42"
 params:
   pagination:
     pagerSize: 1
@@ -10,7 +11,7 @@ languages:
       subtitle: Sivaa
       owner: "sivaplaysmc"
       keywords: ""
-      copyright: "Copyright 2025, sivaplaysmc"
+      copyright: "Copyright 2026, sivaplaysmc"
       menuMore: Show more
       readMore: "Read more"
       readOtherPosts: Read other posts
@@ -34,8 +35,7 @@ languages:
 
 markup:
   highlight:
+    style: aura-theme-dark
+    noClasses: false
     lineNos: true
-    lineNumbersInTable: false
-    lineAnchors: false
-    style: nord
 
