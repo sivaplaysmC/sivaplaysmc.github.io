@@ -1,10 +1,11 @@
 {{- $result := (transform.HighlightCodeBlock .).Wrapped -}}
 
-{{ $id := delimit (shuffle (seq 1 9)) "" }}
-{{ $open := default .Attributes.Open "open" }}
+{{- $id := delimit (shuffle (seq 1 9)) "" -}}
+{{- $closed := default false .Attributes.closed -}}
+{{- $open := cond (not $closed) "open" "" -}}
 
 {{- if .Type -}}
-<details id="{{ $id }}" class="code collapsable-code" open>
+<details id="{{ $id }}" class="code collapsable-code" {{- $open -}}>
     <summary title="Click to expand" style="display: flex;justify-content: space-between;">
         <span class="collapsable-code__title">
             {{- if .Attributes.title -}}
