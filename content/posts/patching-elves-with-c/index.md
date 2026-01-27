@@ -11,7 +11,7 @@ In this post, we'll explore an intuitive way to patch program behaviour in ELF b
 
 ## TL;DR
 
-Feel free to skip to [Writing the patch](#write-patch) section if you are familiar with C compilation process and linkerscript.
+Feel free to skip to [Simple demonstration](#demonstration) section if you are familiar with C compilation process and linkerscript.
 
 ## Compiling C - a quick refresher
 
@@ -88,7 +88,7 @@ SECTIONS
 
 The source for this example is provided at: [example/placing_section_at_address/export.zip](example/placing_section_at_address/export.zip).
 
-## Simple demonstration
+## Simple demonstration {id="demonstration"}
 
 For a practical example, we will patch a binary produced by the following source:
 
