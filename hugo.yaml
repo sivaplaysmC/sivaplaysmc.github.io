@@ -1,4 +1,5 @@
 copyright: "Copyright 2026, Ishmael42"
+enableRobotsTXT: true
 
 params:
   pagination:
