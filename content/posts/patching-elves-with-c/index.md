@@ -1,6 +1,9 @@
 ---
 date: '2026-01-13T00:41:11+05:30'
 title: 'Patching ELFs with ~Assembly~ C, or abusing the linker for fun and profit'
+tags:
+- c
+- reverse-engineering
 ---
 
 Using a little bit of linkerscript magic and C to patch binaries the toolchain-intended way - instead of manually patching assembly instructions like a madman.
