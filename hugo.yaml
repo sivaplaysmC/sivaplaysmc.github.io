@@ -6,10 +6,10 @@ params:
 languages:
   en:
     languageName: English
-    title: sivaplaysmc.github.io
+    title: Binary Ruins
     params:
       centerTheme : true
-      subtitle: Sivaa
+      subtitle: Binary ruins
       owner: "sivaplaysmc"
       keywords: ""
       copyright: "Copyright 2026, sivaplaysmc"
@@ -23,7 +23,7 @@ languages:
       minuteReadingTime: min read
       words: words
       logo:
-        logoText: sivaplaysmc.github.io
+        logoText: Binary Ruins
         logoHomeLink: /
     menu:
       main:

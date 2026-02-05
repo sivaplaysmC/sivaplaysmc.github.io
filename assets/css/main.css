@@ -1,10 +1,11 @@
 :root {
-  --background: #1a170f;
-  --foreground: #eceae5;
-  --accent: #eec35e;
-  --font-size: 1rem;
-  --line-height: 1.54em;
+  --background: #000000;
+  --foreground: #ffffff;
+  --accent: #4eee85;
   --radius: 0;
+  --font-size: 1rem;
+  --line-height: 1.54;
+  --width-max: 800;
 }
 html {
   box-sizing: border-box;
