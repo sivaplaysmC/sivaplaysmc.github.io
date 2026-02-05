@@ -1,5 +1,4 @@
 copyright: "Copyright 2026, Ishmael42"
-enableRobotsTXT: true
 
 params:
   pagination:
@@ -29,10 +28,10 @@ languages:
     menu:
       main:
         - identifier: posts
-          name: Posts
+          name: posts
           url: /posts/
         - identifier: writeups
-          name: Writeups
+          name: writeups
           url: /writeups
 
 markup:
@@ -41,6 +40,8 @@ markup:
     noClasses: false
     lineNos: true
   goldmark:
+    renderer:
+      unsafe: true
     parser:
       attribute:
         block: true

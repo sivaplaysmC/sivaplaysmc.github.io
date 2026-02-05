@@ -1,0 +1,140 @@
+<canvas id="bg-canvas"></canvas>
+
+<style>
+    html,
+    body {
+        background: transparent !important;
+    }
+
+    #bg-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+    }
+
+
+    .home-hero {
+        font-family: "IBM Plex Mono";
+        font-weight: 500;
+        font-style: normal;
+
+        position: relative;
+        z-index: 1;
+        text-shadow:
+            0 0 10px rgba(0, 0, 0, 0.9),
+            0 0 20px rgba(0, 0, 0, 0.8),
+            0 2px 4px rgba(0, 0, 0, 0.9) !important;
+    }
+
+    .home-hero p,
+    .home-content p {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 5px;
+        border-radius: 8px;
+    }
+</style>
+
+<script>
+    (function () {
+        const canvas = document.getElementById("bg-canvas");
+        const c = canvas.getContext("2d", { alpha: false });
+
+        let particleCount = 200;
+        let lightParticles = [];
+        let speed = 0.000001;
+        const maxSpeed = 0.0012;
+        const minSpeed = 0.00000001;
+        let isMouseDown = false;
+
+        const colors = ["#00FF66", "#4EEE85", "#00CC44", "#33FF99", "#66FFAA", "#00FF88"];
+
+        class LightParticle {
+            constructor(angle, radius, size, color) {
+                this.angle = angle;
+                this.radius = radius;
+                this.size = size;
+                this.color = color;
+                this.angleVelocity = (Math.random() - 0.5) * 0.01;
+                this.radiusVelocity = (Math.random() - 0.5) * 0.5;
+            }
+
+            update(rotationSpeed) {
+                this.angle += rotationSpeed + this.angleVelocity;
+                this.radius += this.radiusVelocity;
+                const minRadius = 50;
+                const maxRadius = Math.min(canvas.width, canvas.height) * 0.45;
+                if (this.radius < minRadius || this.radius > maxRadius) {
+                    this.radiusVelocity *= -1;
+                }
+            }
+
+            draw(ctx, centerX, centerY) {
+                const x = centerX + Math.cos(this.angle) * this.radius;
+                const y = centerY + Math.sin(this.angle) * this.radius;
+                const px = Math.round(x);
+                const py = Math.round(y);
+                ctx.fillRect(px, py, this.size, this.size);
+            }
+        }
+
+        function initializeParticles() {
+            lightParticles = [];
+            const maxRadius = Math.min(canvas.width, canvas.height) * 1;
+            const minRadius = 10;
+
+            for (let i = 0; i < particleCount; i++) {
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const size = Math.random() * 4 + 1;
+                const angle = Math.random() * Math.PI * 2;
+                const radius = minRadius + Math.pow(Math.random(), 0.7) * (maxRadius - minRadius);
+                lightParticles.push(new LightParticle(angle, radius, size, color));
+            }
+        }
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initializeParticles();
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            const targetSpeed = isMouseDown ? maxSpeed : 0.001;
+            speed += (targetSpeed - speed) * 0.02;
+            speed = Math.min(maxSpeed, Math.max(minSpeed, speed));
+
+            const halfWidth = canvas.width / 2;
+            const halfHeight = canvas.height / 2;
+
+            // Clear background
+            c.fillStyle = "#000";
+            c.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Group by color for batch rendering
+            const particlesByColor = {};
+            for (let particle of lightParticles) {
+                particle.update(speed);
+                if (!particlesByColor[particle.color]) particlesByColor[particle.color] = [];
+                particlesByColor[particle.color].push(particle);
+            }
+
+            for (let color in particlesByColor) {
+                c.fillStyle = color;
+                for (let particle of particlesByColor[color]) {
+                    particle.draw(c, halfWidth, halfHeight);
+                }
+            }
+        }
+
+        window.addEventListener("mousedown", () => (isMouseDown = true));
+        window.addEventListener("mouseup", () => (isMouseDown = false));
+        window.addEventListener("resize", resizeCanvas);
+
+        resizeCanvas();
+        animate();
+    })();
+</script>

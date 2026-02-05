@@ -1,14 +1,12 @@
 function extractFromDetails(blk) {
-    const content = blk.querySelector("td:nth-child(2)>pre>code").textContent;
-    return content;
+  const content = blk.querySelector("td:nth-child(2)>pre>code").textContent;
+  return content;
 }
 
 function extractFromSimpleCode(container) {
-    const code = container.querySelector("pre > code").textContent;
-    return code;
+  const code = container.querySelector("pre > code").textContent;
+  return code;
 }
-
-
 
 document.querySelectorAll(".copy-button").forEach(btn => {
   btn.addEventListener("click", async () => {

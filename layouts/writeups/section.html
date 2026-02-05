@@ -1,4 +1,6 @@
 {{ define "main" }}
+    {{ partial "neon-particles.html" . }}
+
     {{ $isWriteups := eq .RelPermalink "/writeups/" }}
     {{ $headingTag := cond $isWriteups "h2" "h3" }}
     {{ $openHeadingTag  := printf "<%s class=post-title>" $headingTag | safeHTML }}
