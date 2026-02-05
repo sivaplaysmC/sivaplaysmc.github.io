@@ -11,6 +11,16 @@ https://panr.github.io/terminal-css/ */
   --line-height: 1.54;
   --width-max: 800;
 }
+
+@media (max-width: 684px) {
+  :root {
+    --font-size: 0.90rem;
+  }
+  .container {
+    padding: 15px;
+  }
+}
+
 html {
   box-sizing: border-box;
 }

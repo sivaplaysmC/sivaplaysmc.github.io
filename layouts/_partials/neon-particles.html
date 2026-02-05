@@ -15,25 +15,14 @@
         z-index: -1;
     }
 
-
     .home-hero {
         font-family: "IBM Plex Mono";
         font-weight: 500;
-        font-style: normal;
-
         position: relative;
         z-index: 1;
-        text-shadow:
-            0 0 10px rgba(0, 0, 0, 0.9),
-            0 0 20px rgba(0, 0, 0, 0.8),
-            0 2px 4px rgba(0, 0, 0, 0.9) !important;
-    }
-
-    .home-hero p,
-    .home-content p {
-        background: rgba(0, 0, 0, 0.5);
-        padding: 5px;
-        border-radius: 8px;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+        color: white; /* Added for visibility */
+        padding: 20px;
     }
 </style>
 
@@ -49,7 +38,11 @@
         const minSpeed = 0.00000001;
         let isMouseDown = false;
 
-        const colors = ["#00FF66", "#4EEE85", "#00CC44", "#33FF99", "#66FFAA", "#00FF88"];
+        const colors = ["#00FF66", "#ffffff", "#00CC44", "#33FF99", "#66FFAA", "#00FF88"];
+
+        // Connection settings
+        const connectionDistance = 50; // Max distance to connect
+        const connectionDistanceSq = connectionDistance * connectionDistance; // Squared optimization
 
         class LightParticle {
             constructor(angle, radius, size, color) {
@@ -59,23 +52,31 @@
                 this.color = color;
                 this.angleVelocity = (Math.random() - 0.5) * 0.01;
                 this.radiusVelocity = (Math.random() - 0.5) * 0.5;
+                // Cache cartesian coordinates
+                this.x = 0;
+                this.y = 0;
             }
 
-            update(rotationSpeed) {
+            update(rotationSpeed, centerX, centerY) {
                 this.angle += rotationSpeed + this.angleVelocity;
                 this.radius += this.radiusVelocity;
+
                 const minRadius = 50;
                 const maxRadius = Math.min(canvas.width, canvas.height) * 0.45;
+
                 if (this.radius < minRadius || this.radius > maxRadius) {
                     this.radiusVelocity *= -1;
                 }
+
+                // Calculate and store Cartesian position once per frame
+                this.x = centerX + Math.cos(this.angle) * this.radius;
+                this.y = centerY + Math.sin(this.angle) * this.radius;
             }
 
-            draw(ctx, centerX, centerY) {
-                const x = centerX + Math.cos(this.angle) * this.radius;
-                const y = centerY + Math.sin(this.angle) * this.radius;
-                const px = Math.round(x);
-                const py = Math.round(y);
+            draw(ctx) {
+                // Rounding pixels improves rendering performance slightly
+                const px = Math.round(this.x);
+                const py = Math.round(this.y);
                 ctx.fillRect(px, py, this.size, this.size);
             }
         }
@@ -114,10 +115,42 @@
             c.fillStyle = "#000";
             c.fillRect(0, 0, canvas.width, canvas.height);
 
-            // Group by color for batch rendering
+            // 1. Update Positions & Cache Coordinates
+            for (let particle of lightParticles) {
+                particle.update(speed, halfWidth, halfHeight);
+            }
+
+            // 2. Draw Connections (Batch Drawing)
+            c.strokeStyle = "rgba(78, 238, 133, 0.38)";
+            c.lineWidth = 0.5;
+            c.beginPath();
+
+            for (let i = 0; i < lightParticles.length; i++) {
+                let connections = 0;
+                const p1 = lightParticles[i];
+
+                for (let j = i + 1; j < lightParticles.length; j++) {
+                    const p2 = lightParticles[j];
+
+                    // Fast distance check (Squared Euclidean)
+                    const dx = p1.x - p2.x;
+                    const dy = p1.y - p2.y;
+                    const distSq = dx * dx + dy * dy;
+
+                    if (distSq < connectionDistanceSq) {
+                        c.moveTo(p1.x, p1.y);
+                        c.lineTo(p2.x, p2.y);
+                        connections++;
+
+                        if (connections >= 2) break;
+                    }
+                }
+            }
+            c.stroke();
+
+            // 3. Draw Particles (Grouped by color for performance)
             const particlesByColor = {};
             for (let particle of lightParticles) {
-                particle.update(speed);
                 if (!particlesByColor[particle.color]) particlesByColor[particle.color] = [];
                 particlesByColor[particle.color].push(particle);
             }
@@ -125,7 +158,7 @@
             for (let color in particlesByColor) {
                 c.fillStyle = color;
                 for (let particle of particlesByColor[color]) {
-                    particle.draw(c, halfWidth, halfHeight);
+                    particle.draw(c);
                 }
             }
         }
