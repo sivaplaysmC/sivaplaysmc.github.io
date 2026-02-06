@@ -1,4 +1,4 @@
-<canvas id="bg-canvas"></canvas>
+<canvas id="bg-canvas" hx-preserve=true></canvas>
 
 <style>
     html,
@@ -34,8 +34,8 @@
         let particleCount = 200;
         let lightParticles = [];
         let speed = 0.000001;
-        const maxSpeed = 0.0012;
-        const minSpeed = 0.00000001;
+        const maxSpeed = 0.0006;
+        const minSpeed = 0.00001;
         let isMouseDown = false;
 
         const colors = ["#00FF66", "#ffffff", "#00CC44", "#33FF99", "#66FFAA", "#00FF88"];

@@ -5,27 +5,29 @@
 {{- $open := cond (not $closed) "open" "" -}}
 
 {{- if .Type -}}
-<details id="{{ $id }}" class="code collapsable-code" {{- $open -}}>
-    <summary title="Click to expand" style="display: flex;justify-content: space-between;">
-        <span class="collapsable-code__title">
-            {{- if .Attributes.title -}}
-                {{ (printf "%s — %s" .Type  .Attributes.title) | upper }}
-            {{- else -}}
-                {{ .Type | upper }}
-            {{- end -}}
-        </span>
-        <button class="copy-button" data-copy-target="{{ $id }}">Copy</button>
-    </summary>
-    {{- $result -}}
-</details>
+    <details id="{{ $id }}" class="code collapsable-code" {{- $open -}}>
+        <summary title="Click to expand" style="display: flex;justify-content: space-between;">
+            <span class="collapsable-code__title">
+                {{- if .Attributes.title -}}
+                    {{ (printf "%s — %s" .Type  .Attributes.title) | upper }}
+                {{- else -}}
+                    {{ .Type | upper }}
+                {{- end -}}
+            </span>
 
+            <div style="display:flex;gap:8px;">
+                <!-- <button class="aside-button" data-aside-target="{{ $id }}">Aside</button> -->
+                <button class="copy-button" data-copy-target="{{ $id }}">Copy</button>
+            </div>
+        </summary>
+        {{- $result -}}
+    </details>
 {{- else -}}
-<div id="{{ $id }}" class="collapsable-code">
-    <div style="display: flex;justify-content: space-between;">
-        <span class="collapsable-code__title">TEXT</span>
-        <button class="copy-button" data-copy-target="{{ $id }}">Copy</button>
+    <div id="{{ $id }}" class="collapsable-code">
+        <div style="display: flex;justify-content: space-between;">
+            <span class="collapsable-code__title">TEXT</span>
+            <button class="copy-button" data-copy-target="{{ $id }}">Copy</button>
+        </div>
+        {{- $result -}}
     </div>
-    {{- $result -}}
-</div>
-
 {{- end -}}
