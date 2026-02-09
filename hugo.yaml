@@ -1,8 +1,7 @@
 copyright: "Copyright 2026, Ishmael42"
 
-params:
-  pagination:
-    pagerSize: 1
+pagination:
+  pagerSize: 5
 languages:
   en:
     languageName: English
@@ -30,9 +29,15 @@ languages:
         - identifier: posts
           name: posts
           url: /posts/
+          weight: 10
         - identifier: writeups
           name: writeups
           url: /writeups
+          weight: 20
+        - identifier: archive
+          name: archive
+          url: /archive/
+          weight: 30
 
 markup:
   highlight:

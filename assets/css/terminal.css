@@ -493,13 +493,15 @@ div.post-content {
   word-wrap: break-word;
   padding-right: 20px;
 }
-.post-date {
+
+.recent-section .post-date {
   white-space: nowrap;
   text-align: right;
   color: rgba(255, 255, 255, 0.6);
   font-size: 0.9em;
-  vertical-align: top;
+  vertical-align: text-top;
 }
+
 .post-title a {
   text-decoration: none;
   color: var(--accent);
@@ -510,8 +512,12 @@ div.post-content {
 .post-content {
   background: #000 !important;
 }
+
 .posts {
   background: #000 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 30px
 }
 
 .code-side {

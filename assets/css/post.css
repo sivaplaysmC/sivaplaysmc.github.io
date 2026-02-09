@@ -18,7 +18,6 @@
   width: 100%;
   text-align: left;
   padding: 0px;
-  padding-top: 30px;
 }
 .post:not(:last-of-type) {
   border-bottom: 1px solid color-mix(in srgb, var(--foreground) 10%, transparent);

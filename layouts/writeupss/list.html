@@ -1,6 +1,5 @@
 {{ define "main" }}
     {{ partial "neon-particles.html" . }}
-    {{ $paginator := .Paginate (.Pages.ByDate.Reverse) }}
 
 
     <div class="post-content">
@@ -9,14 +8,15 @@
         </h1>
 
         <div class="post-meta">
-            <span class="post-author" >Last updated {{ (index (.Pages.ByLastmod.Reverse) 0).Lastmod.Format "02 Jan 2006" -}}</span>
-            <span class="post-author"> {{- len .Pages }} Entries </span>
+            <span class="post-author"> {{- .Params.Author | default "Ishmael42" -}} </span>
+            <span class="post-author"> sivaram.asdf@gmail.com </span>
         </div>
 
         <hr />
 
         {{ .Summary }}
 
+        {{ $paginator := .Paginate (.Pages.ByDate.Reverse) }}
 
         <div class="posts">
             {{ range $paginator.Pages }}
@@ -62,3 +62,4 @@
         </div>
     </div>
 {{ end }}
+
