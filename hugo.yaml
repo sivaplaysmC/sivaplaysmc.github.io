@@ -26,6 +26,10 @@ languages:
         logoHomeLink: /
     menu:
       main:
+        - identifier: chain-of-thoughts
+          name: chain-of-thoughts
+          url: /chain-of-thoughts/
+          weight: 9
         - identifier: posts
           name: posts
           url: /posts/
