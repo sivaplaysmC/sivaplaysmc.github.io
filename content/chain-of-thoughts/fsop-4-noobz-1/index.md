@@ -17,6 +17,19 @@ It has the following requirements:
 
 Feel free to read the [exploit](#exploit) along with the cradle that I used to learn this: [fsop-4-noobz-1.zip](images/fsop-4-noobz-1.zip).
 
+## Function chain
+
+```
+exit
+-> __run_exit_handlers
+-> _IO_cleanup
+-> _IO_flush_all
+-> _IO_wfile_oveflow
+-> _IO_wdoallocbuf
+-> _IO_WDOALLOCATE (fp)
+=> system(fp)
+```
+
 ## Optimisation
 
 This attack arranges the fields in such a way that the three necessary structs (`struct _IO_FILE`, `struct _IO_wide_data`, `struct _IO_jumps_t`) overlap while also meeting necessary constraints.
