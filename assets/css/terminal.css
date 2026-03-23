@@ -32,7 +32,7 @@ html {
   padding: 0;
 }
 body {
-  font-family: "IBM Plex Mono", Monaco, Consolas, "Ubuntu Mono", monospace;
+  font-family: "JetBrains Mono", Monaco, Consolas, "Ubuntu Mono", monospace;
   font-size: var(--font-size);
   font-weight: 400;
   line-height: var(--line-height);
