@@ -12,6 +12,7 @@ tags:
 
 ## Reverse Engineer | Exploit Developer
 
+**Why are we still here? Just to suffer?!**
 
 _"I'm already a daemon. The binaries I've reversed, the exploits I've crafted - Outer Heaven won't absolve me of these sins."_
 
