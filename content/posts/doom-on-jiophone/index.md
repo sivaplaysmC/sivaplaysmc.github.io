@@ -12,7 +12,7 @@ Project's source (GPLv2): [doom_qualcomm-msm890x](https://github.com/sivaplaysmC
 
 ---
 
-If your attention span is cooked (like mine) ~~don't skip to the [Final result](#final-result)~~
+If your attention span is cooked (like mine) ~~(don't) feel free skip to the [Final result](#final-result)~~
 
 ---
 
